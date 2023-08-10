@@ -1049,7 +1049,7 @@ In EIP-1559 mode, the following changes occur to how configuration works:
 - All new transactions will be sent as type 0x2 transactions specifying a TipCap and FeeCap. Be aware that existing pending legacy transactions will continue to be gas bumped in legacy mode.
 - `BlockHistoryEstimator` will apply its calculations (gas percentile etc) to the TipCap and this value will be used for new transactions (GasPrice will be ignored)
 - `FixedPriceEstimator` will use `EVM_GAS_TIP_CAP_DEFAULT` instead of `ETH_GAS_PRICE_DEFAULT` for the tip cap
-- `FixedPriceEstimator` will use `EVM_GAS_FEE_CAP_DEFAULT` instaed of `ETH_GAS_PRICE_DEFAULT` for the fee cap
+- `FixedPriceEstimator` will use `EVM_GAS_FEE_CAP_DEFAULT` instead of `ETH_GAS_PRICE_DEFAULT` for the fee cap
 - `ETH_MIN_GAS_PRICE_WEI` is ignored for new transactions and `EVM_GAS_TIP_CAP_MINIMUM` is used instead (default 0)
 - `ETH_MAX_GAS_PRICE_WEI` still represents that absolute upper limit that Chainlink will ever spend (total) on a single tx
 - `KEEPER_GAS_PRICE_BUFFER_PERCENT` is ignored in EIP-1559 mode and `KEEPER_TIP_CAP_BUFFER_PERCENT` is used instead
@@ -1095,7 +1095,7 @@ Some job types, such as Keeper jobs, might set their own gas limit unrelated to 
 
 - Default: _automatically set based on Chain ID, typically 500000_
 
-The maxium for gas limits estimated by the `Arbitrum` `GAS_ESTIMATOR_MODE`. This should not need to be changed in most cases.
+The maximum for gas limits estimated by the `Arbitrum` `GAS_ESTIMATOR_MODE`. This should not need to be changed in most cases.
 
 ### ETH_GAS_LIMIT_MULTIPLIER
 
@@ -1420,7 +1420,7 @@ Optional URL of OCR monitoring endpoint.
 OCR supports multiple networking stacks. `P2P_NETWORKING_STACK` chooses which stack to use. Possible values are:
 
 - `V1`
-- `V1V2` - Runs both stacks simultaneously. For each link with another peer, V2 networking will be preferred. If V2 does not work, the link will automatically fall back to V1. If V2 starts working again later, it will automatically be prefered again. This is useful for migrating networks without downtime. Note that the two networking stacks _must not_ be configured to bind to the same IP/port.
+- `V1V2` - Runs both stacks simultaneously. For each link with another peer, V2 networking will be preferred. If V2 does not work, the link will automatically fall back to V1. If V2 starts working again later, it will automatically be preferred again. This is useful for migrating networks without downtime. Note that the two networking stacks _must not_ be configured to bind to the same IP/port.
 - `V2`
 
 All nodes in the OCR network should share the same networking stack. The `V1` stack is deprecated and is being phased out. Do not use it for new deployments. Expect the default value of this variable to change to `V2` in the future.
@@ -1529,7 +1529,7 @@ Example: `P2PV2_LISTEN_ADDRESSES=1.2.3.4:9999 [a52d:0:a88:1274::abcd]:1337`
 
 ## Keeper
 
-These environment variables are used specificly for Chainlink Keepers. For most Chainlink Nodes, leave these values at their defaults and do not configure these environment variables.
+These environment variables are used specifically for Chainlink Keepers. For most Chainlink Nodes, leave these values at their defaults and do not configure these environment variables.
 
 ### KEEPER_GAS_PRICE_BUFFER_PERCENT
 
